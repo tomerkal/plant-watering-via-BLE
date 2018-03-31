@@ -28,11 +28,11 @@ The purpose of the project is to create a plant watering system manageable via a
 |----------------|-------------------------------|-----------------------------|
 | [TI cc1350 Launchpad](http://www.ti.com/tool/LAUNCHXL-CC1350-4) |`luch pad`            |![](http://www.ti.com/diagrams/med_launchxl-cc1350-4_launchxl-cc1350-4-topsideprof.jpg)            |
 |android enabled device          |`prefertably 27 api`            |![](http://www.media-kom.com/wp-content/uploads/2015/10/android.jpg)            |
-|2 X resistors          |`2kOhm`|![](https://media.rs-online.com/t_large/R0132494-01.jpg)|
-|2 X relays          |5V enabled, can transfer up to 12V, 1A. we uesd: m3___| ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_A1x2YZGwe1IPF8xiabJIDGi9yS8xuDPEZj3YIaNZiZ8MJKOfkw) |
+|2 X resistors          |`410 Ohm`|![not the same part, image for reference only](https://media.rs-online.com/t_large/R0132494-01.jpg)|
+|2 X relays          |5V enabled, can transfer up to 12V, 1A. we uesd: m45h| ![not the same part, image for reference only](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_A1x2YZGwe1IPF8xiabJIDGi9yS8xuDPEZj3YIaNZiZ8MJKOfkw) |
 | battery          |standard 9V|![](https://cdn.aws.toolstation.com/images/141020-UK/800/91814.jpg)|
-|2 X trasistors          |`NPN`, we used: n2222|![image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkEW9aSJbzSFaZdxWrgoBPG_ceJttPhXfLmSmVyiYYoqhiTSFtSQ) |
-|voltage regulator          |`from 9V to 5V. we used 2km35`|![](https://cdn.sparkfun.com//assets/parts/4/4/2/4/12766-01.jpg)|
+|2 X trasistors          |`NPN`, we used: 2n2222A|![image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkEW9aSJbzSFaZdxWrgoBPG_ceJttPhXfLmSmVyiYYoqhiTSFtSQ) |
+|voltage regulator          |`from 9V to 5V. we used L7805CV`|![not the same part, image for reference only](https://cdn.sparkfun.com//assets/parts/4/4/2/4/12766-01.jpg)|
 |soile muister sensor          |we used the [Sparkfun one](https://www.sparkfun.com/products/13322)|![](https://cdn.sparkfun.com//assets/parts/1/0/6/1/0/13322-01.jpg)|
 |breadboard          |`or ready to soldier one`|![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/400_points_breadboard.jpg/220px-400_points_breadboard.jpg)|
 |wires          |`diffrent colors and lengths`|![](http://www.dfliq.net/wp-content/uploads/2014/03/Electrical-wirings-768x326.jpg)
@@ -45,21 +45,64 @@ The purpose of the project is to create a plant watering system manageable via a
 2. [TI Code composer studio](http://www.ti.com/tool/CCSTUDIO) - for developing software on the cc1350
 3. [TI Sensor controller studio](http://www.ti.com/tool/SENSOR-CONTROLLER-STUDIO) - to test and verify the soil moisture sensor  
 
-### Installing
-A step by step series of examples that tell you have to get a development env running
+## developing process
 
-Say what the step will be
+### Android application:
 
-```
-Give the example
-```
+­We used **Android Studio 3.0.1** for developing the application.
 
-And repeat
+For implementing a BLE application we were assisted by this [example](https://github.com/netanelyo/AdvancedComputerSystems), 
+And this [manual](https://www.allaboutcircuits.com/projects/how-to-communicate-with-a-custom-ble-using-an-android-app/).
 
-```
-until finished
-```
+- We changed the Read / Write functions in the following manner:
 
+- We used the write function to open and close the tap, and the read function to receive information from the soil moisture sensor.
+
+**Using the application:**
+
+After opening the application, a connection window will appear, with available BLE devices. Find the TI-RTOS board by the name SimpleBlePeripheral.
+
+After pressing on it, the application will connect to the board and open a window with three buttons – Open tap, Close tap, Read humidity. When pressing the open / close tap buttons, the application will write to the board via BLE, and the board will then open / close the tap.
+
+When pressing the Read humidity button – the application will read information from the soil moisture sensor, and will show one of the three messages:
+
+If the moisture is too low – "Please water me!".
+
+If the moisture it too high – "I'm flooding! Stop the water!".
+
+If the moisture is just right – "I feel sooo good!".
+
+Upon reading these messages, the user will know if needed to open, close, or do nothing with the tap.
+
+About the process:
+
+First of all, this was our first time dealing with an android application, so we spent some time learning the Android studio software and implementing some basic apps.
+
+After that, using the example and the manual that were mentioned above, we built the write functions that open and close the tap using different characters to represent each action and transmitting them over BLE.
+
+Finally, we added the read function that receives data from the soil moisture sensor, going through the TI-RTOS board and transmitted via BLE to the app, and according to the character transmitted shows a different message upon the screen.
+
+TI-RTOS application:
+
+We used Code Composer Studio 7.3.0 for developing the application running on the board.
+
+For implementing the TI-RTOS application, we were assisted by two examples from the SimpleLink SDK: adcsinglechannel and simple_peripheral.
+
+For the BLE connection, we used the simple_peripheral example.
+
+We adjusted the write function to send 200ms signals to the data outputs (DIO12, DIO15) of the board, in order to open and close the tap when receiving the command from the board via BLE.
+
+The read function was adjusted based on the adcsinglechannel example to read data from the soil moisture sensor (DIO23) and send characters over BLE to the mobile application (sending "3" represents low moisture, "4" represents good moisture, and "7" represents too much moisture).
+
+About the process:
+
+In HW5, we learned how to use the BLE protocol to read and write to the TI-RTOS board using the simple_peripheral example. We used this example to try and write characters that will send signals through the different data outputs of the board, and for the first stage turn on / off LEDs.
+
+After completing that, we connected the data outputs of our choice (DIO12, DIO15) to the electrical circuit that will open and close the tap (further explanations regarding how the electric circuit works will be discussed below).
+
+We then were assisted with the adcsinglechannel example to read data from the soil moisture sensor. We used the Sensor Controller Studio software to learn about the values returned from the sensor, and then again used LEDs connected to the board to understand the different levels that we reach in different moisture situations (putting the sensor in the air, in dry soil, wet soil and in a glass of water). After understanding that, we adjusted the read function in the code to read data from the sensor, and then send characters representing each level of moisture to the mobile app via BLE.
+
+##########################
 End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
