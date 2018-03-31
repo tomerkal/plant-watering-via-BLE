@@ -65,7 +65,7 @@ And this [manual](https://www.allaboutcircuits.com/projects/how-to-communicate-w
  - When pressing the **Read humidity button** – the application will read information from the soil moisture sensor, and will show one of the three messages:
 
  - -  If the moisture is too low – **"Please water me!"**.
- -  - If the moisture it too high – **"I'm flooding! Stop the water!" **.
+ -  - If the moisture it too high – **"I'm flooding! Stop the water!"**.
  -  - If the moisture is just right – **"I feel sooo good!"**.
 
 - Upon reading these messages, the user will know if needed to open, close, or do nothing with the tap.
@@ -98,7 +98,23 @@ After completing that, we connected the data outputs of our choice **(DIO12, DIO
 
 We then were assisted with the **adcsinglechannel** example to read data from the soil moisture sensor. We used the **Sensor Controller Studio** software to learn about the values returned from the sensor, and then again used LEDs connected to the board to understand the different levels that we reach in different moisture situations (putting the sensor in the air, in dry soil, wet soil and in a glass of water). After understanding that, we adjusted the read function in the code to read data from the sensor, and then send characters representing each level of moisture to the mobile app via **BLE**.
 
+### Electric board:
+we used the follwing circuit design to implement the fisical open/close operations in the tap activated by the signals from the cc1350 dio nodes. 
+
+#### circuit design:
+![image](https://github.com/yuvalailer/plant-watering-via-BLE/blob/master/Capture.PNG)
+
+- As can be seen in the design, a **9v** battery powers the circuit, and eventually powers the DC motor that opens and closes the tap.
+- The **9v** voltage is reduced to **5v** using a **voltage regulator**. the **5v** is connected to the coils of the relays.
+- The other end of the coil is connected to the **transistor**.
+- When a signal from the **cc1350** is received (via the resistor) , it opens the transistor to flow current from the coil to the **battery minus**.
+- this will change the state of the relay and will connect the **9v** to the DC motor thus opening/closing the tap.      
+
+#### About the process:
+
+
 ##########################
+
 End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
