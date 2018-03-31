@@ -1,3 +1,4 @@
+
 # Plant-watering-via-BLE
 This is the final project in the Advanced Computer Systems course (IOT)  in Tel-Aviv University. 
 ### objectives
@@ -21,13 +22,13 @@ The purpose of the project is to create a plant watering system manageable via a
 |android enabled device          |`prefertably 27 api`            |![](http://www.media-kom.com/wp-content/uploads/2015/10/android.jpg)            |
 |2 X resistors          |`2kOhm`|![](https://media.rs-online.com/t_large/R0132494-01.jpg)|
 |2 X relays          |5V enabled, can transfer up to 12V, 1A. we uesd: m3___| ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_A1x2YZGwe1IPF8xiabJIDGi9yS8xuDPEZj3YIaNZiZ8MJKOfkw) |
-| battery          |standard 9V|![](https://batteryspecialists.com.au/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/D/M/DMN1604-2_3.jpg)|
+| battery          |standard 9V|![](https://cdn.aws.toolstation.com/images/141020-UK/800/91814.jpg)|
 |2 X trasistors          |`NPN`, we used: n2222|![image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkEW9aSJbzSFaZdxWrgoBPG_ceJttPhXfLmSmVyiYYoqhiTSFtSQ) |
 |voltage regulator          |`from 9V to 5V. we used 2km35`|![](https://cdn.sparkfun.com//assets/parts/4/4/2/4/12766-01.jpg)|
 |soile muister sensor          |we used the [Sparkfun one](https://www.sparkfun.com/products/13322)|![](https://cdn.sparkfun.com//assets/parts/1/0/6/1/0/13322-01.jpg)|
-|name          |`what`|![]()|
+|breadboard          |`or ready to soldier one`|![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/400_points_breadboard.jpg/220px-400_points_breadboard.jpg)|
 |
-|name          |`what`|![]()|
+|wires          |`diffrent colors and lengths`|![](http://www.dfliq.net/wp-content/uploads/2014/03/Electrical-wirings-768x326.jpg)
 |
 |name          |`what`|![]()|
 |
