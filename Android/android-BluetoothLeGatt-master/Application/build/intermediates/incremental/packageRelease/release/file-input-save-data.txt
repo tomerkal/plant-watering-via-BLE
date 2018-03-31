@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Sat Mar 17 15:17:12 IST 2018
+0.baseType=DIRECTORY
+0.base=C\:\\Users\\tv-pc\\Documents\\android-BluetoothLeGatt-master\\Application\\build\\intermediates\\transforms\\dex\\release\\0
+0.path=classes.dex
+0.set=DEX
+count=1
