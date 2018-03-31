@@ -41,13 +41,11 @@ The purpose of the project is to create a plant watering system manageable via a
 |name          |`what`|![]()|
 
 #### software:
-android studio 
-```
-Give examples
-```
+1. [Android studio](https://developer.android.com/studio/index.html) - for creating and editing android apps
+2. [TI Code composer studio](http://www.ti.com/tool/CCSTUDIO) - for developing software on the cc1350
+3. [TI Sensor controller studio](http://www.ti.com/tool/SENSOR-CONTROLLER-STUDIO) - to test and verify the soil moisture sensor  
 
 ### Installing
-
 A step by step series of examples that tell you have to get a development env running
 
 Say what the step will be
