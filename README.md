@@ -1,15 +1,15 @@
 
 # Plant watering via BLE
 This is the final project in the Advanced Computer Systems course (IOT)  in Tel-Aviv University. 
-by **omer brach & yuval ailer** 
+by **Omer Brach & Yuval Ailer** 
 
-**special thanks to:** 
-- Prof. Sivan Toledo - course lecturer and project guidance.
+**Special thanks to:** 
+- Prof. Sivan Toledo - course lecturer and project guid.
 - [Netafim company](http://www.netafimusa.com/) - for donating the gear needed to enable this project.
 -  Dov Ailer - Electrical Engineering guidance and support.
 
-### objectives
-The purpose of the project is to create a plant watering system manageable via a blue-tooth connection. Do to the nature of battery enabled watering systems, the system needs to preform a high voltage operation (opening and closing the tap) for a short period of time, and for the most part of the day, to remain inactive and preserve battery power. For this reason we choose to use the TI [cc1350](http://www.ti.com/product/CC1350) low-power micro-controller. The following documentation will provide the needed information to recreate our project and use it on your own. 
+### Objectives
+The purpose of the project is to create a plant watering system manageable via a blue-tooth connection. Due to the nature of battery enabled watering systems, the system needs to preform a high voltage operation (opening and closing the tap) for a short period of time, and for the most part of the day, to remain inactive and preserve battery power. For this reason we choose to use the TI [cc1350](http://www.ti.com/product/CC1350) low-power micro-controller. The following documentation will provide the needed information to recreate our project and use it on your own. 
 
 ## Getting Started
 
@@ -112,11 +112,19 @@ we used the follwing circuit design to implement the fisical open/close operatio
 
 #### About the process:
 At first, we had only knowledge that the **TI-TROS** can output a maximum of **5v** through the data outputs, with no knowledge of the current provided by them.
-We spoke on the phone with **Esteban Socolsky** from **Netafim**, and asked him about the tap. He told us that in order to open the tap, we will need to send a pulse of **9v, 0.5 mA current for 200 milliseconds**, and to close – a pulse of **minus 9v**. With this new knowledge, we understood that we need to build a slightly more sophisticated circuit in order to make the tap open/close through the board.
-We consulted with **Professor Sivan Toledo** (our course lecturer) and **Dov Ailer** (Electrical engineer by profession). We made our conclusions, and tried to implement their advices. At first, we tried to work with a relay in order to meet the demands of the tap. We connected a **9v** battery to the relay and upon activating the coil with a **5v** power source the **9v** would pass through and open/close the tap as expected. Next, we tried to switch the **5v** power source with an output from the board, but that did not give us enough power to activate the coil.
+We spoke on the phone with **Esteban Socolsky** from **Netafim**, and asked him about the tap. He told us that in order to open the tap, we will need to send a pulse of **9v, 0.5 mA current for 200 milliseconds**, and to close a pulse of **minus 9v**. 
+
+With this new knowledge, we understood that we need to build a slightly more sophisticated circuit in order to make the tap open/close through the board.
+We consulted with **Professor Sivan Toledo** (our course lecturer) and **Dov Ailer** (Electrical engineer by profession). We made our conclusions, and tried to implement their advices. 
+At first, we tried to work with a relay in order to meet the demands of the tap. We connected a **9v** battery to the relay and upon activating the coil with a **5v** power source the **9v** would pass through and open/close the tap as expected.
+ 
+Next, we tried to switch the **5v** power source with an output from the board, but that did not give us enough power to activate the coil.
 We understood that the way to operate the circuit correctly is to add a **NPN BJT** transistor (operating as a switch) that will be connected the following way: Emitter connected to the ground, Collector to the negative side of the coil and the base connected through a resistor to the data output of the board. Now, we given a pulse from the board, the transistor will be activated, current will flow between collector and emitter and the coil will be activated.
+
 In order to achieve the **5v** power source to connect to the positive side of the coil in the relay, we used a voltage regulator that with input of **9v** from the battery, gave us a **5v** output.
+
 After succeeding with that, we built an almost identical circuit for closing the tap, but the **9v**-ground outputs  of the relay that are connected to the tap were connected the other way around. This way, at each time only one relay will be working and we can generate opposite pulses for opening and closing the tap.
+
 We also used the **5v** output from the regulator to power the **TI-RTOS** board.
 
 ## how to start using this project:
