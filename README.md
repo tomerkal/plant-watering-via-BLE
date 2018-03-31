@@ -64,9 +64,9 @@ And this [manual](https://www.allaboutcircuits.com/projects/how-to-communicate-w
  - After pressing on it, the application will connect to the board and open a window with three buttons – **Open tap**, **Close tap**, **Read humidity**. When pressing the **open **/ **close tap** buttons, the application will write to the board via BLE, and the board will then open / close the tap.
  - When pressing the **Read humidity button** – the application will read information from the soil moisture sensor, and will show one of the three messages:
 
- - -  If the moisture is too low – ***"Please water me!"***.
- -  - If the moisture it too high – ***"I'm flooding! Stop the water!" ***.
- -  - If the moisture is just right – ***"I feel sooo good!"***.
+ - -  If the moisture is too low – **"Please water me!"**.
+ -  - If the moisture it too high – **"I'm flooding! Stop the water!" **.
+ -  - If the moisture is just right – **"I feel sooo good!"**.
 
 - Upon reading these messages, the user will know if needed to open, close, or do nothing with the tap.
 
