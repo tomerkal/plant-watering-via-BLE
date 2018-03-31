@@ -27,13 +27,9 @@ The purpose of the project is to create a plant watering system manageable via a
 |voltage regulator          |`from 9V to 5V. we used 2km35`|![](https://cdn.sparkfun.com//assets/parts/4/4/2/4/12766-01.jpg)|
 |soile muister sensor          |we used the [Sparkfun one](https://www.sparkfun.com/products/13322)|![](https://cdn.sparkfun.com//assets/parts/1/0/6/1/0/13322-01.jpg)|
 |breadboard          |`or ready to soldier one`|![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/400_points_breadboard.jpg/220px-400_points_breadboard.jpg)|
-|
 |wires          |`diffrent colors and lengths`|![](http://www.dfliq.net/wp-content/uploads/2014/03/Electrical-wirings-768x326.jpg)
-|
+|name         |`what`|![]()|
 |name          |`what`|![]()|
-|
-|name          |`what`|![]()|
-|
 |name          |`what`|![]()|
 
 
