@@ -17,7 +17,7 @@ The purpose of the project is to create a plant watering system manageable via a
 
 |gear                |info                          |more                         |
 |----------------|-------------------------------|-----------------------------|
-| [TI cc1350 Launchpad](http://www.ti.com/tool/LAUNCHXL-CC1350-4) |`luch pad`            |![](http://dev.ti.com/tirex/content/tirex-product-tree/cc13xx_devtools/.metadata/.tirex/img/launchxl-cc1350_p.jpg)            |
+| [TI cc1350 Launchpad](http://www.ti.com/tool/LAUNCHXL-CC1350-4) |`luch pad`            |![](http://www.ti.com/diagrams/med_launchxl-cc1350-4_launchxl-cc1350-4-topsideprof.jpg)            |
 |android enabled device          |`prefertably 27 api`            |![](http://www.media-kom.com/wp-content/uploads/2015/10/android.jpg)            |
 |2 X resistors          |`2kOhm`|![](https://media.rs-online.com/t_large/R0132494-01.jpg)|
 |2 X relays          |5V enabled, can transfer up to 12V, 1A. we uesd: m3___| ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_A1x2YZGwe1IPF8xiabJIDGi9yS8xuDPEZj3YIaNZiZ8MJKOfkw) |
