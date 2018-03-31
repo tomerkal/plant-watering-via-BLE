@@ -58,49 +58,45 @@ And this [manual](https://www.allaboutcircuits.com/projects/how-to-communicate-w
 
 - We used the write function to open and close the tap, and the read function to receive information from the soil moisture sensor.
 
-**Using the application:**
+#### Using the application:
 
-After opening the application, a connection window will appear, with available BLE devices. Find the TI-RTOS board by the name SimpleBlePeripheral.
+ - After opening the application, a connection window will appear, with available BLE devices. Find the TI-RTOS board by the name **SimpleBlePeripheral**.
+ - After pressing on it, the application will connect to the board and open a window with three buttons – **Open tap**, **Close tap**, **Read humidity**. When pressing the **open **/ **close tap** buttons, the application will write to the board via BLE, and the board will then open / close the tap.
+ - When pressing the **Read humidity button** – the application will read information from the soil moisture sensor, and will show one of the three messages:
 
-After pressing on it, the application will connect to the board and open a window with three buttons – Open tap, Close tap, Read humidity. When pressing the open / close tap buttons, the application will write to the board via BLE, and the board will then open / close the tap.
+ - -  If the moisture is too low – ***"Please water me!"***.
+ -  - If the moisture it too high – ***"I'm flooding! Stop the water!" ***.
+ -  - If the moisture is just right – ***"I feel sooo good!"***.
 
-When pressing the Read humidity button – the application will read information from the soil moisture sensor, and will show one of the three messages:
+- Upon reading these messages, the user will know if needed to open, close, or do nothing with the tap.
 
-If the moisture is too low – "Please water me!".
+#### About the process:
 
-If the moisture it too high – "I'm flooding! Stop the water!".
+First of all, this was our first time dealing with an android application, so we spent some time learning the **Android studio** software and implementing some basic apps.
 
-If the moisture is just right – "I feel sooo good!".
+After that, using the example and the manual that were mentioned above, we built the write functions that open and close the tap using different characters to represent each action and transmitting them over **BLE**.
 
-Upon reading these messages, the user will know if needed to open, close, or do nothing with the tap.
+Finally, we added the read function that receives data from the soil moisture sensor, going through the **TI-RTOS** board and transmitted via **BLE** to the app, and according to the character transmitted shows a different message upon the screen.
 
-About the process:
+### TI-RTOS application:
 
-First of all, this was our first time dealing with an android application, so we spent some time learning the Android studio software and implementing some basic apps.
+We used **Code Composer Studio 7.3.0** for developing the application running on the board.
 
-After that, using the example and the manual that were mentioned above, we built the write functions that open and close the tap using different characters to represent each action and transmitting them over BLE.
+For implementing the TI-RTOS application, we were assisted by two examples from the **SimpleLink SDK: adcsinglechannel** and **simple_peripheral**.
 
-Finally, we added the read function that receives data from the soil moisture sensor, going through the TI-RTOS board and transmitted via BLE to the app, and according to the character transmitted shows a different message upon the screen.
+ For the **BLE** connection, we used the **simple_peripheral** example.
 
-TI-RTOS application:
+We adjusted the write function to send **200ms** signals to the data outputs **(DIO12, DIO15)** of the board, in order to open and close the tap when receiving the command from the board via **BLE**.
 
-We used Code Composer Studio 7.3.0 for developing the application running on the board.
+The read function was adjusted based on the **adcsinglechannel** example to read data from the soil moisture sensor **(DIO23)** and send characters over **BLE** to the mobile application *(sending "3" represents low moisture, "4" represents good moisture, and "7" represents too much moisture)*.
 
-For implementing the TI-RTOS application, we were assisted by two examples from the SimpleLink SDK: adcsinglechannel and simple_peripheral.
+#### About the process:
 
-For the BLE connection, we used the simple_peripheral example.
+In **HW5**, we learned how to use the **BLE** protocol to read and write to the **TI-RTOS** board using the **simple_peripheral** example. We used this example to try and write characters that will send signals through the different data outputs of the board, and for the first stage turn on / off LEDs.
 
-We adjusted the write function to send 200ms signals to the data outputs (DIO12, DIO15) of the board, in order to open and close the tap when receiving the command from the board via BLE.
+After completing that, we connected the data outputs of our choice **(DIO12, DIO15)** to the electrical circuit that will open and close the tap *(further explanations regarding how the electric circuit works will be discussed below).*
 
-The read function was adjusted based on the adcsinglechannel example to read data from the soil moisture sensor (DIO23) and send characters over BLE to the mobile application (sending "3" represents low moisture, "4" represents good moisture, and "7" represents too much moisture).
-
-About the process:
-
-In HW5, we learned how to use the BLE protocol to read and write to the TI-RTOS board using the simple_peripheral example. We used this example to try and write characters that will send signals through the different data outputs of the board, and for the first stage turn on / off LEDs.
-
-After completing that, we connected the data outputs of our choice (DIO12, DIO15) to the electrical circuit that will open and close the tap (further explanations regarding how the electric circuit works will be discussed below).
-
-We then were assisted with the adcsinglechannel example to read data from the soil moisture sensor. We used the Sensor Controller Studio software to learn about the values returned from the sensor, and then again used LEDs connected to the board to understand the different levels that we reach in different moisture situations (putting the sensor in the air, in dry soil, wet soil and in a glass of water). After understanding that, we adjusted the read function in the code to read data from the sensor, and then send characters representing each level of moisture to the mobile app via BLE.
+We then were assisted with the **adcsinglechannel** example to read data from the soil moisture sensor. We used the **Sensor Controller Studio** software to learn about the values returned from the sensor, and then again used LEDs connected to the board to understand the different levels that we reach in different moisture situations (putting the sensor in the air, in dry soil, wet soil and in a glass of water). After understanding that, we adjusted the read function in the code to read data from the sensor, and then send characters representing each level of moisture to the mobile app via **BLE**.
 
 ##########################
 End with an example of getting some data out of the system or using it for a little demo
