@@ -1,4 +1,5 @@
 
+
 # Plant watering via BLE
 This is the final project in the Advanced Computer Systems course (IOT)  in Tel-Aviv University. 
 by **Omer Brach & Yuval Ailer** 
@@ -16,31 +17,31 @@ The purpose of the project is to create a plant watering system manageable via a
 **The project demands work on three levels:** 
  1. Android app for controlling the system (code provided).
  2. TI cc1350 on-board development (code provided).
- 3. build an electric circle (sketch and hardware list provided).  
+ 3. Build an electric circle (sketch and hardware list provided).  
 
 ### 
 
 
-### list of materials:
-#### hardware:
+### List of materials:
+#### Hardware:
 
-|gear                |info                          |more                         |
+|Gear                |Info                          |More                         |
 |----------------|-------------------------------|-----------------------------|
-| [TI cc1350 Launchpad](http://www.ti.com/tool/LAUNCHXL-CC1350-4) |`luch pad`            |![](http://www.ti.com/diagrams/med_launchxl-cc1350-4_launchxl-cc1350-4-topsideprof.jpg)            |
-|android enabled device          |`prefertably 27 api`            |![](http://www.media-kom.com/wp-content/uploads/2015/10/android.jpg)            |
-|2 X resistors          |`410 Ohm`|![not the same part, image for reference only](https://media.rs-online.com/t_large/R0132494-01.jpg)|
-|2 X relays          |5V enabled, can transfer up to 12V, 1A. we uesd: m45h| ![not the same part, image for reference only](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_A1x2YZGwe1IPF8xiabJIDGi9yS8xuDPEZj3YIaNZiZ8MJKOfkw) |
-| battery          |standard 9V|![](https://cdn.aws.toolstation.com/images/141020-UK/800/91814.jpg)|
-|2 X trasistors          |`NPN`, we used: 2n2222A|![image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkEW9aSJbzSFaZdxWrgoBPG_ceJttPhXfLmSmVyiYYoqhiTSFtSQ) |
-|voltage regulator          |`from 9V to 5V. we used L7805CV`|![not the same part, image for reference only](https://cdn.sparkfun.com//assets/parts/4/4/2/4/12766-01.jpg)|
-|soile muister sensor          |we used the [Sparkfun one](https://www.sparkfun.com/products/13322)|![](https://cdn.sparkfun.com//assets/parts/1/0/6/1/0/13322-01.jpg)|
-|breadboard          |`or ready to soldier one`|![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/400_points_breadboard.jpg/220px-400_points_breadboard.jpg)|
-|wires          |`diffrent colors and lengths`|![](http://www.dfliq.net/wp-content/uploads/2014/03/Electrical-wirings-768x326.jpg)
+| [TI cc1350 Launchpad](http://www.ti.com/tool/LAUNCHXL-CC1350-4) |`Luchpad`            |![](http://www.ti.com/diagrams/med_launchxl-cc1350-4_launchxl-cc1350-4-topsideprof.jpg)            |
+|Android enabled device          |Preferably version 27             |![](http://www.media-kom.com/wp-content/uploads/2015/10/android.jpg)            |
+|2 X Resistors          |`410 Ohm`|![not the same part, image for reference only](https://media.rs-online.com/t_large/R0132494-01.jpg)|
+|2 X Relays          |5V enabled, can transfer up to 12V, 1A. we used: M45h| ![not the same part, image for reference only](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_A1x2YZGwe1IPF8xiabJIDGi9yS8xuDPEZj3YIaNZiZ8MJKOfkw) |
+| Battery          |standard 9V|![](https://cdn.aws.toolstation.com/images/141020-UK/800/91814.jpg)|
+|2 X Transistors          |`NPN`, we used: 2n2222A|![image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkEW9aSJbzSFaZdxWrgoBPG_ceJttPhXfLmSmVyiYYoqhiTSFtSQ) |
+|Voltage Regulator          |`from 9V to 5V. we used L7805CV`|![not the same part, image for reference only](https://cdn.sparkfun.com//assets/parts/4/4/2/4/12766-01.jpg)|
+|Soile muister sensor          |we used the [Sparkfun one](https://www.sparkfun.com/products/13322)|![](https://cdn.sparkfun.com//assets/parts/1/0/6/1/0/13322-01.jpg)|
+|Breadboard          |or ready to soldier one|![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/400_points_breadboard.jpg/220px-400_points_breadboard.jpg)|
+|Wires          | Different colors and lengths|![](http://www.dfliq.net/wp-content/uploads/2014/03/Electrical-wirings-768x326.jpg)
 |Electric tap         |We used the [Netafim Aqua-Pro](http://www.netafimusa.com/) that was generously donated to us by the company|![](https://growshop.co.il/wp-content/uploads/2017/06/NETAFIM_IRRIGATION_COMPUTER.jpg)|
 |name          |`what`|![]()|
 |name          |`what`|![]()|
 
-#### software:
+#### Software:
 1. [Android studio](https://developer.android.com/studio/index.html) - for creating and editing android apps
 2. [TI Code composer studio](http://www.ti.com/tool/CCSTUDIO) - for developing software on the cc1350
 3. [TI Sensor controller studio](http://www.ti.com/tool/SENSOR-CONTROLLER-STUDIO) - to test and verify the soil moisture sensor  
@@ -99,16 +100,16 @@ After completing that, we connected the data outputs of our choice **(DIO12, DIO
 We then were assisted with the **adcsinglechannel** example to read data from the soil moisture sensor. We used the **Sensor Controller Studio** software to learn about the values returned from the sensor, and then again used LEDs connected to the board to understand the different levels that we reach in different moisture situations (putting the sensor in the air, in dry soil, wet soil and in a glass of water). After understanding that, we adjusted the read function in the code to read data from the sensor, and then send characters representing each level of moisture to the mobile app via **BLE**.
 
 ### Electric board:
-we used the follwing circuit design to implement the fisical open/close operations in the tap activated by the signals from the cc1350 dio nodes. 
+We used the following circuit design to implement the physical open/close operations in the tap activated by the signals from the cc1350 dio nodes. 
 
-#### circuit design:
+#### Circuit design:
 ![image](https://github.com/yuvalailer/plant-watering-via-BLE/blob/master/Capture.PNG)
 
 - As can be seen in the design, a **9v** battery powers the circuit, and eventually powers the DC motor that opens and closes the tap.
 - The **9v** voltage is reduced to **5v** using a **voltage regulator**. the **5v** is connected to the coils of the relays.
 - The other end of the coil is connected to the **transistor**.
 - When a signal from the **cc1350** is received (via the resistor) , it opens the transistor to flow current from the coil to the **battery minus**.
-- this will change the state of the relay and will connect the **9v** to the DC motor thus opening/closing the tap.      
+- This will change the state of the relay and will connect the **9v** to the DC motor thus opening/closing the tap.      
 
 #### About the process:
 At first, we had only knowledge that the **TI-TROS** can output a maximum of **5v** through the data outputs, with no knowledge of the current provided by them.
@@ -128,27 +129,27 @@ After succeeding with that, we built an almost identical circuit for closing the
 We also used the **5v** output from the regulator to power the **TI-RTOS** board.
 
 ## how to start using this project:
-#### the process involves using the previously mentioned software and assuming the electrical circuit is ready and connected properly.
-#### to start the android app:
-1. download and install Android studio.
-2. download this project or clone it using git command:
+#### The process involves using the previously mentioned software and assuming the electrical circuit is ready and connected properly.
+#### To start the android app:
+1. Download and install Android studio.
+2. Download this project or clone it using git command:
 `git clone https://github.com/yuvalailer/plant-watering-via-BLE.git`
-3. open the project in the android studio. 
-4. get your android device ready for [USB debugging](http://www.kingoapp.com/root-tutorials/how-to-enable-usb-debugging-mode-on-android.htm).
-5. build and debug the app on the device.
-#### to start the TI-RTOS code:  
-1. download and install CSS.
-2. download this project or clone it using git command:
+3. Open the project in the Android studio. 
+4. Get your android device ready for [USB debugging](http://www.kingoapp.com/root-tutorials/how-to-enable-usb-debugging-mode-on-android.htm).
+5. Build and debug the app on the device.
+#### To start the TI-RTOS code:  
+1. Download and install **CSS**.
+2. Download this project or clone it using git command:
 `git clone https://github.com/yuvalailer/plant-watering-via-BLE.git`
-3. open the code in CSS.
-4. connect the board to the computer.
-5. first compile and debug the stack example.
-6. then compile and debug the app example.
+3. Open the code in CSS.
+4. Connect the board to the computer.
+5. First compile and debug the stack example.
+6. Then compile and debug the app example.
 
-#### merge:
-1. once the board is up and running, the app will recognize the board under the name ** Simple BLE-periferal **.
-2. once connected, use the buttons to control the tap. 
+#### Merge:
+1. Once the board is up and running, the app will recognize the board under the name ** Simple BLE-periferal **.
+2. Once connected, use the buttons to control the tap. 
 
-#### for more information fell free to post questions on this repo and we will try to answer them if we can. 
+#### For more information fell free to post questions on this Repo and we will try to answer them if we can. 
 
-##### We don't have any IP rights for the software, hardware, internet articles, manuals, images (found on google image search) and any other part 3rd party component of this project, which may be subjected to any kind of copyrights. all activities on this project were made for educational purpose only.      
+#### We don't have any IP rights for the software, hardware, internet articles, manuals, images (found on google image search) and any other  3rd party component of this project, which may be subjected to any kind of copyrights. all activities in this project were made for educational purpose only.      
