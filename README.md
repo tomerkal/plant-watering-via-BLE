@@ -1,6 +1,13 @@
 
-# Plant-watering-via-BLE
+# Plant watering via BLE
 This is the final project in the Advanced Computer Systems course (IOT)  in Tel-Aviv University. 
+by **omer brach & yuval ailer** 
+
+**special thanks to:** 
+- Prof. Sivan Toledo - course lecturer and project guidance.
+- [Netafim company](http://www.netafimusa.com/) - for donating the gear needed to enable this project.
+-  Dov Ailer - Electrical Engineering guidance and support.
+
 ### objectives
 The purpose of the project is to create a plant watering system manageable via a blue-tooth connection. Do to the nature of battery enabled watering systems, the system needs to preform a high voltage operation (opening and closing the tap) for a short period of time, and for the most part of the day, to remain inactive and preserve battery power. For this reason we choose to use the TI [cc1350](http://www.ti.com/product/CC1350) low-power micro-controller. The following documentation will provide the needed information to recreate our project and use it on your own. 
 
@@ -15,6 +22,7 @@ The purpose of the project is to create a plant watering system manageable via a
 
 
 ### list of materials:
+#### hardware:
 
 |gear                |info                          |more                         |
 |----------------|-------------------------------|-----------------------------|
@@ -28,13 +36,12 @@ The purpose of the project is to create a plant watering system manageable via a
 |soile muister sensor          |we used the [Sparkfun one](https://www.sparkfun.com/products/13322)|![](https://cdn.sparkfun.com//assets/parts/1/0/6/1/0/13322-01.jpg)|
 |breadboard          |`or ready to soldier one`|![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/400_points_breadboard.jpg/220px-400_points_breadboard.jpg)|
 |wires          |`diffrent colors and lengths`|![](http://www.dfliq.net/wp-content/uploads/2014/03/Electrical-wirings-768x326.jpg)
-|name         |`what`|![]()|
+|Electric tap         |We used the [Netafim Aqua-Pro](http://www.netafimusa.com/) that was generously donated to us by the company|![](https://growshop.co.il/wp-content/uploads/2017/06/NETAFIM_IRRIGATION_COMPUTER.jpg)|
 |name          |`what`|![]()|
 |name          |`what`|![]()|
 
-
-What things you need to install the software and how to install them
-
+#### software:
+android studio 
 ```
 Give examples
 ```
