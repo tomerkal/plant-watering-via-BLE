@@ -10,7 +10,7 @@ by **Omer Bracha & Yuval Ailer**
 -  Dov Ailer - Electrical Engineering guidance and support.
 
 ## Example video:
-[![IMAGE ALT TEXT HERE](https://github.com/yuvalailer/plant-watering-via-BLE/blob/master/video_image.jpeg =250x)](https://youtu.be/z5ZcZOntGuo) 
+[![IMAGE ALT TEXT HERE](https://github.com/yuvalailer/plant-watering-via-BLE/blob/master/video_image.jpeg) =250x](https://youtu.be/z5ZcZOntGuo) 
 
 ### Objectives
 The purpose of the project is to create a plant watering system manageable by a Bluetooth connection. Due to the nature of battery enabled watering systems, the system needs to preform a high voltage operation (opening and closing the tap) for a short period of time, and for most of the day to remain inactive and preserve battery power. For this reason we chose to use the TI [CC1350](http://www.ti.com/product/CC1350) low-power micro-controller. The following documentation will provide the needed information to recreate our project and use it on your own. 
