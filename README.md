@@ -5,9 +5,12 @@ This is the final project in the Advanced Computer Systems course (IOT)  in Tel-
 by **Omer Bracha & Yuval Ailer** 
 
 **Special thanks to:** 
-- Prof. Sivan Toledo - course lecturer and project guid.
-- [Netafim company](http://www.netafimusa.com/) - for donating the gear needed to enable this project.
+- Prof. Sivan Toledo - Course lecturer and project guide.
+- [Netafim company](http://www.netafimusa.com/) - Donation of the gear needed to enable this project.
 -  Dov Ailer - Electrical Engineering guidance and support.
+
+## Example video:
+[![IMAGE ALT TEXT HERE](https://github.com/yuvalailer/plant-watering-via-BLE/blob/master/video_image.jpeg)](https://github.com/yuvalailer/plant-watering-via-BLE/blob/master/project_working_video.mp4) 
 
 ### Objectives
 The purpose of the project is to create a plant watering system manageable by a Bluetooth connection. Due to the nature of battery enabled watering systems, the system needs to preform a high voltage operation (opening and closing the tap) for a short period of time, and for most of the day to remain inactive and preserve battery power. For this reason we chose to use the TI [CC1350](http://www.ti.com/product/CC1350) low-power micro-controller. The following documentation will provide the needed information to recreate our project and use it on your own. 
